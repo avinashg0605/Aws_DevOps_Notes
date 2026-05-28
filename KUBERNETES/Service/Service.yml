@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-v.1
+spec:
+  selector:
+    app: myapp-v.1
+  ports:
+  - port: 80
+    targetPort: 80
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-v.2
+spec:
+  selector:
+    app: myapp-v.2
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+
